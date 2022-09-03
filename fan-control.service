@@ -1,0 +1,13 @@
+[Unit]
+Description=Temperature-based fan speed controller
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/python3 -u /opt/fan_control/fan_control.py
+KillSignal=SIGINT
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target
